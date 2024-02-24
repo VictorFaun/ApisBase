@@ -1,0 +1,509 @@
+{
+	"info": {
+		"_postman_id": "eb7fae79-7f8e-44eb-9683-08011043cd34",
+		"name": "ApisBaseNodeExpressMongoDB",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25953884"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Inicio de Sesion",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"admin@localhost\",\r\n    \"password\":\"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/auth/signin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"auth",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registrarse",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"user@localhost\",\r\n    \"password\":\"user\",\r\n    \"username\":\"user\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/auth/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Role",
+			"item": [
+				{
+					"name": "Obtener Roles",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZDk1ZjFjYzRlNDA5MGNkMWQwYTFiZCIsImlhdCI6MTcwODc0NDgyNCwiZXhwIjoxNzExMzM2ODI0fQ.l4X03ZnEpSyE5dgRBoA8WWKuGYItcmJmPFRdnEHEKoc",
+								"description": "Token usuario con rol Admin",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/api/roles/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"roles",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Rol",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZDZkODFlYzYyMzRjMThiYWY0MGQzNiIsImlhdCI6MTcwODU3ODg2MSwiZXhwIjoxNzExMTcwODYxfQ.fH1OtMv5gTJ6ZPG5QhNx4vCcwjGzz-AN5gzkb44byyE",
+								"description": "Token usuario con rol Admin",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/api/roles/65d6d8bec6234c18baf40d51",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"roles",
+								"65d6d8bec6234c18baf40d51"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar Rol",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZDZkODFlYzYyMzRjMThiYWY0MGQzNiIsImlhdCI6MTcwODU3ODg2MSwiZXhwIjoxNzExMTcwODYxfQ.fH1OtMv5gTJ6ZPG5QhNx4vCcwjGzz-AN5gzkb44byyE",
+								"description": "Token usuario con rol Admin",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"state\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/roles/65d6d8bec6234c18baf40d51",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"roles",
+								"65d6d8bec6234c18baf40d51"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear Rol",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZDZkODFlYzYyMzRjMThiYWY0MGQzNiIsImlhdCI6MTcwODU3ODg2MSwiZXhwIjoxNzExMTcwODYxfQ.fH1OtMv5gTJ6ZPG5QhNx4vCcwjGzz-AN5gzkb44byyE",
+								"description": "Token usuario con rol Admin",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"jugador\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/roles",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"roles"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Functionality",
+			"item": [
+				{
+					"name": "Obtener Funcionalidades",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZDk1ZjFjYzRlNDA5MGNkMWQwYTFiZCIsImlhdCI6MTcwODc0NDgyNCwiZXhwIjoxNzExMzM2ODI0fQ.l4X03ZnEpSyE5dgRBoA8WWKuGYItcmJmPFRdnEHEKoc",
+								"description": "Token usuario con rol Admin",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZDk2MDZlYzRlNDA5MGNkMWQwYTFjMSIsImlhdCI6MTcwODc0NDgxNCwiZXhwIjoxNzExMzM2ODE0fQ.DAWVZb1qQagDjyZd1lBMGZXSZKLiomQ6Sg8drnc94QE",
+								"description": "Token usuario sin roles",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/api/functionalities?name=obtener funcionalida",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"functionalities"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "obtener funcionalida"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Funcionalidad",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZDk1ZjFjYzRlNDA5MGNkMWQwYTFiZCIsImlhdCI6MTcwODc0NDgyNCwiZXhwIjoxNzExMzM2ODI0fQ.l4X03ZnEpSyE5dgRBoA8WWKuGYItcmJmPFRdnEHEKoc",
+								"description": "Token usuario con rol Admin",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZDk2MDZlYzRlNDA5MGNkMWQwYTFjMSIsImlhdCI6MTcwODc0NDgxNCwiZXhwIjoxNzExMzM2ODE0fQ.DAWVZb1qQagDjyZd1lBMGZXSZKLiomQ6Sg8drnc94QE",
+								"description": "Token usuario sin roles",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/api/functionalities/65d95f1bc4e4090cd1d0a1a7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"functionalities",
+								"65d95f1bc4e4090cd1d0a1a7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar Funcionalidad",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZDk1ZjFjYzRlNDA5MGNkMWQwYTFiZCIsImlhdCI6MTcwODc0NDgyNCwiZXhwIjoxNzExMzM2ODI0fQ.l4X03ZnEpSyE5dgRBoA8WWKuGYItcmJmPFRdnEHEKoc",
+								"description": "Token usuario con rol Admin",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"state\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/functionalities/65d95f1bc4e4090cd1d0a1a7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"functionalities",
+								"65d95f1bc4e4090cd1d0a1a7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear Funcionalidad",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZDZkODFlYzYyMzRjMThiYWY0MGQzNiIsImlhdCI6MTcwODU3ODg2MSwiZXhwIjoxNzExMTcwODYxfQ.fH1OtMv5gTJ6ZPG5QhNx4vCcwjGzz-AN5gzkb44byyE",
+								"description": "Token usuario con rol Admin",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"jugador\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/functionalities",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"functionalities"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Obtener Usuarios",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZDk1ZjFjYzRlNDA5MGNkMWQwYTFiZCIsImlhdCI6MTcwODc0NDgyNCwiZXhwIjoxNzExMzM2ODI0fQ.l4X03ZnEpSyE5dgRBoA8WWKuGYItcmJmPFRdnEHEKoc",
+								"description": "Token usuario con rol Admin",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZDk2MDZlYzRlNDA5MGNkMWQwYTFjMSIsImlhdCI6MTcwODc0NDgxNCwiZXhwIjoxNzExMzM2ODE0fQ.DAWVZb1qQagDjyZd1lBMGZXSZKLiomQ6Sg8drnc94QE",
+								"description": "Token usuario sin roles",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/api/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Usuario",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZDk1ZjFjYzRlNDA5MGNkMWQwYTFiZCIsImlhdCI6MTcwODc0NDgyNCwiZXhwIjoxNzExMzM2ODI0fQ.l4X03ZnEpSyE5dgRBoA8WWKuGYItcmJmPFRdnEHEKoc",
+								"description": "Token usuario con rol Admin",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZDk2MDZlYzRlNDA5MGNkMWQwYTFjMSIsImlhdCI6MTcwODc0NDgxNCwiZXhwIjoxNzExMzM2ODE0fQ.DAWVZb1qQagDjyZd1lBMGZXSZKLiomQ6Sg8drnc94QE",
+								"description": "Token usuario sin roles",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/api/users/65d95f1bc4e4090cd1d0a1a7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"users",
+								"65d95f1bc4e4090cd1d0a1a7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar Usuario",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZDk1ZjFjYzRlNDA5MGNkMWQwYTFiZCIsImlhdCI6MTcwODc0NDgyNCwiZXhwIjoxNzExMzM2ODI0fQ.l4X03ZnEpSyE5dgRBoA8WWKuGYItcmJmPFRdnEHEKoc",
+								"description": "Token usuario con rol Admin",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"state\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/users/65d95f1bc4e4090cd1d0a1a7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"users",
+								"65d95f1bc4e4090cd1d0a1a7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear Usuario",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZDZkODFlYzYyMzRjMThiYWY0MGQzNiIsImlhdCI6MTcwODU3ODg2MSwiZXhwIjoxNzExMTcwODYxfQ.fH1OtMv5gTJ6ZPG5QhNx4vCcwjGzz-AN5gzkb44byyE",
+								"description": "Token usuario con rol Admin",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"jugador\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
