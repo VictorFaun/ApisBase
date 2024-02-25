@@ -7,8 +7,8 @@ const roleSchema = new mongoose.Schema(
       unique: true
     },
     creator: {
-      type: String,
-      unique: false
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
     },
     functionalities: [
       {

@@ -31,7 +31,7 @@ export const getFunctionalities = async (req, res) => {
     }
 
     // Realizar la búsqueda en la base de datos con los filtros
-    const functionalities = await Functionality.find(filter);
+    const functionalities = await Functionality.find(filter).populate("creator");
 
     return res.json(functionalities);
   } catch (error) {
@@ -42,7 +42,7 @@ export const getFunctionalities = async (req, res) => {
 export const getFunctionality = async (req, res) => {
   try {
     const functionalityId = req.params.id;
-    const functionality = await Functionality.findOne({ _id: functionalityId })
+    const functionality = await Functionality.findOne({ _id: functionalityId }).populate("creator")
     if (!functionality) {
       return res.status(404).json({ error: "Functionality not found" });
     }
@@ -55,7 +55,7 @@ export const getFunctionality = async (req, res) => {
 export const createFunctionality = async (req, res) => {
   try {
     const { name, description, route } = req.body;
-    const newFunctionality = await Functionality.create({ name, description, route, creator: req.userId });
+    const newFunctionality = await Functionality.create({ name, description, route, creator: req.userId }).populate("creator");
     return res.status(201).json(newFunctionality);
   } catch (error) {
     return res.status(500).json({ error: "Internal Server Error" });
@@ -80,7 +80,7 @@ export const updateFunctionality = async (req, res) => {
 
     const updatedFunctionality = await Functionality.findByIdAndUpdate(functionalityId, req.body, {
       new: true,
-    });
+    }).populate("creator");
 
     if (!updatedFunctionality) {
       return res.status(404).json({ error: "Functionality not found" });

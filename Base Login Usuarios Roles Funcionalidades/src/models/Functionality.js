@@ -11,17 +11,17 @@ const functionalitySchema = new mongoose.Schema(
             unique: true,
         },
         creator: {
-          type: String,
-          unique: false
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "User",
         },
         description: {
             type: String,
             required: false,
         },
         state: {
-          type: Number,
-          unique: false,
-          default: 1
+            type: Number,
+            unique: false,
+            default: 1
         },
     },
     {

@@ -21,7 +21,7 @@ export const getRoles = async (req, res) => {
     if (state !== undefined) filter.state = state;
 
     // Realizar la búsqueda en la base de datos con los filtros
-    const roles = await Role.find(filter);
+    const roles = await Role.find(filter).populate("creator");
 
     return res.json(roles);
   } catch (error) {
@@ -33,7 +33,7 @@ export const getRole = async (req, res) => {
   try {
 
     const roleId = req.params.id;
-    const role = await Role.findOne({ _id: roleId })
+    const role = await Role.findOne({ _id: roleId }).populate("creator")
     if (!role) {
       return res.status(404).json({ error: "Role not found" });
     }
@@ -46,7 +46,7 @@ export const getRole = async (req, res) => {
 export const createRole = async (req, res) => {
   try {
     const { name } = req.body;
-    const newRole = await Role.create({ name, creator: req.userId });
+    const newRole = await Role.create({ name, creator: req.userId }).populate("creator");
     return res.status(201).json(newRole);
   } catch (error) {
     return res.status(500).json({ error: "Internal Server Error" });
@@ -71,7 +71,7 @@ export const updateRole = async (req, res) => {
 
     const updatedRole = await Role.findByIdAndUpdate(roleId, req.body, {
       new: true,
-    });
+    }).populate("creator");
 
     if (!updatedRole) {
       return res.status(404).json({ error: "Role not found" });
